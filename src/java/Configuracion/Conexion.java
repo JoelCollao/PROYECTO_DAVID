@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 public class Conexion {
     Connection con;
-    String url="jdbc:mysql://localhost/bd_venta";
+    String url="jdbc:mysql://localhost/datos";
     String usuario="root";
     String password="";
     public Conexion(){

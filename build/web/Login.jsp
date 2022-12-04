@@ -53,75 +53,47 @@
                         </div>
                         <input type="submit" name="accion" value="Login" class="btn btn-primary btn-blog">
                         <div>
-                            <a class="dropdown-item" data-toggle="modal" data-target="#ventana3" href="#">Cambiar contraseña</a>
+                            <br>
+                        </div>
+                        <div>
+                        <button data-toggle="modal" data-target="#ventana1" href="#" class="btn btn-primary btn-blog">Recuperar contraseña</button>
                         </div>
                     </form>
                 </div>
             </div>
-            
-             <div class="modal fade" id="ventana3">
+                                            
+          <div class="modal fade" id="ventana1">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    
-                    <form action="Control?accion=registrarCliente" method="POST">   
+                    <form action="Control?accion=recuperar" method="POST">   
                         <div class="modal-body">
-                           
-                            <%
-//                            Cliente cli = new Cliente();
-                            ClienteDAO cliDAO = new ClienteDAO();
-                            ArrayList<Cliente>listaCliente = cliDAO.listarClientes();
-                            int totalClientes= listaCliente.size()+1;
-                            String formato="0000";
-                            DecimalFormat objf= new DecimalFormat(formato);
-                            String codCliente = "C"+objf.format(totalClientes);
-                            System.out.println("Cliente nuevo"+codCliente);
-                            %>  
+                            <label>Email</label>
+                            <input type="text" placeholder="Introduca su Correo Electronico" name="txtemail" id="txtemail" class="form-control">
                         </div>
-                        
-                       
-                        <div>
-                        <label>Antigua Contraseña</label>
-                            <div class="form-row">
-                                <div class="col">
-                        <input class="form-control" type="password" name="password" id="password">
-                            </div>
-                        <div class="col">
-                          <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Mostrar Contraseña</button>
+                        <div class="modal-body">   
+                        <button type="submit" value="Login"  class="btn btn-info" data-toggle="modal" data-target="#ventana2" href="#" >Enviar</button>
+                        <button class="btn btn-danger btn-large" data-dismiss="modal" aria-hidden="true">Cancelar</button>
                         </div>
-                            </div>
-                        </div>
-                        
-                         <div>
-                        <label>Nueva Contraseña</label>
-                            <div class="form-row">
-                                <div class="col">
-                        <input class="form-control" type="password" name="password" id="password">
-                            </div>
-                        <div class="col">
-                          <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Mostrar Contraseña</button>
-                        </div>
-                            </div>
-                        </div>
-                                <!-- PARA SEGUIR CON MOSTRAR CONTRASEÑA -->
-                               <!-- https://www.baulphp.com/3-formas-para-mostrar-y-ocultar-contrasenas/ -->               
-                        <div>
-                        <label>Repita Contraseña</label>
-                            <div class="form-row">
-                                <div class="col">
-                        <input class="form-control" type="password" name="password" id="password">
-                            </div>
-                        <div class="col">
-                          <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Mostrar Contraseña</button>
-                        </div>
-                            </div>
-                        </div>
-                        <input type="submit" value="Enviar"  class="btn btn-info">
-                    </form>                         
+                    </form>                           
                 </div>
             </div>
         </div>
-                       
+            
+            
+             <div class="modal fade" id="ventana2">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <a>Mensaje Enviado Correctamente</a>                     
+                </div>
+            </div>
         </div>
+            
+            
+            
+                                                                                     
+                 <!-- PARA SEGUIR CON MOSTRAR CONTRASEÑA -->
+                <!-- https://www.baulphp.com/3-formas-para-mostrar-y-ocultar-contrasenas/ -->                 
+             
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>

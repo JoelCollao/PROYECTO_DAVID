@@ -1,20 +1,20 @@
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-                     
-            var Culqi = [];
-            Culqi.publicKey = 'pk_test_08844ad484aa4e03';
-            
-            Culqi.settings({
+                 var Culqi = [];    
+                 Culqi.publicKey = 'pk_test_08844ad484aa4e03';
+                 Culqi.settings({
                     title: 'Culqi',
                     currency: 'PEN',
                     amount: 1000,
                     order: 'ord_live_0CjjdWhFpEAZlxlz'
                     });   
-                  
-            Culqi.options({
+             
+  
+                Culqi.options({
                     lang: 'auto',
                     installments: false,
                     paymentMethods: {
@@ -26,7 +26,9 @@
                     }
                 });
             
-              Culqi.options({
+                 
+            
+                Culqi.options({
                     style: {
                       logo: 'https://culqi.com/LogoCulqi.png',
                       bannerColor: '9BB613', // hexadecimal
@@ -38,10 +40,18 @@
                      priceColor: '9BB613' // hexadecimal
                     }
                 });
-                
-               
-                
-
+           
+            
+         
+                const btn_pagar = document.getElementById('btn_pagar');
+                btn_pagar.addEventListener('click', function (e) {
+                    // Abre el formulario con la configuración en Culqi.settings y CulqiOptions
+                    Culqi.open();
+                    e.preventDefault();
+                });
+           
+            
+           
                 function culqi() {
                   if (Culqi.token) {  // ¡Objeto Token creado exitosamente!
                     const token = Culqi.token;
@@ -57,6 +67,6 @@
                     console.log(`Error : ${Culqi.error.merchant_message}.`);
                   }
                 };
-            
-            
-
+           
+                                
+          

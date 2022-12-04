@@ -11,6 +11,7 @@
 <%@page import="Modelo.Carrito"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -140,7 +141,7 @@
                         </table>
                     </div>
                     <div class="col-sm-4">
-                        <form action="Control?accion=Pagar" method="POST">
+                        <form action="" method="POST">
                         <label>Elegir Tienda</label>                            
                         <select name="txtLoc" id="txtLoc">
                     <%
@@ -170,36 +171,38 @@
                             <div class="card-footer">
                                 <input type="submit" value="Realizar Pago" class="form-control">
                             </div>
-                            
-                       
-                        
+                                
+                             <div>
+                            <button id="btn_pagar" value="btn_pagar">Pagar</button>
+                            </div>
+
                         </div>
                         </form>
                     </div>
-                                <div>
-                                    <button id="btn_pagar" value="btn_pagar">Pagar</button>
-                                </div>
+                               
                 </div>
             </div>
+                              
              
-                       
-          <script>  
-                            
-          const btn_pagar = document.getElementById('btn_pagar');
-          btn_pagar.addEventListener('click', function (e) {
-          // Abre el formulario con la configuración en Culqi.settings y CulqiOptions
-          Culqi.open();
-          e.preventDefault();
-          });
-
-          Culqi.settings({
+               <!--Scprit de culqui-->
+            <script src="https://checkout.culqi.com/js/v4"></script>
+             
+ 
+              <script> Culqi.publicKey = 'pk_test_08844ad484aa4e03';</script>
+            
+             <script> 
+                 Culqi.settings({
                     title: 'Culqi',
                     currency: 'PEN',
-                    amount: 1000,
+                    amount: 3337748,
                     order: 'ord_live_0CjjdWhFpEAZlxlz'
                     });   
-                  
-           Culqi.options({
+             </script>
+            
+            
+            <!--Paso 3. Personaliza el Culqi Checkout (opcional)-->
+            <script>
+                Culqi.options({
                     lang: 'auto',
                     installments: false,
                     paymentMethods: {
@@ -210,8 +213,11 @@
                       cuotealo: true
                     }
                 });
+            </script>
             
-            Culqi.options({
+            <!-- Configuración de UI -->
+            <script>
+                Culqi.options({
                     style: {
                       logo: 'https://culqi.com/LogoCulqi.png',
                       bannerColor: '9BB613', // hexadecimal
@@ -223,7 +229,19 @@
                      priceColor: '9BB613' // hexadecimal
                     }
                 });
-
+            </script>
+            
+            <script>
+                const btn_pagar = document.getElementById('btn_pagar');
+                btn_pagar.addEventListener('click', function (e) {
+                    // Abre el formulario con la configuración en Culqi.settings y CulqiOptions
+                    Culqi.open();
+                    e.preventDefault();
+                });
+            </script>
+            
+            
+            <script>
                 function culqi() {
                   if (Culqi.token) {  // ¡Objeto Token creado exitosamente!
                     const token = Culqi.token;
@@ -239,12 +257,9 @@
                     console.log(`Error : ${Culqi.error.merchant_message}.`);
                   }
                 };
-
-          </script>  
-            <script src="https://checkout.culqi.com/js/v3"></script>
-            <script> Culqi.publicKey = 'pk_test_08844ad484aa4e03';</script>
-                    
-            <script type="text/javascript" src="Js/Procesar_Pagos_Culqui.js"></script> 
+            </script>
+                                
+       
                                 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

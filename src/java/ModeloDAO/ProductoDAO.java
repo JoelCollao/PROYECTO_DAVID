@@ -85,7 +85,7 @@ public class ProductoDAO implements metodoProducto {
     public boolean eliminar(String pro_codigo) {
        String sql;
         try {
-            sql="delete producto where pro_codigo='"+pro_codigo+"'";       
+            sql="delete from producto where pro_codigo='"+pro_codigo+"'";       
             //delete from producto where pro_codigo='P0016'
             con=cn.getConnection();
             ps=con.prepareStatement(sql);

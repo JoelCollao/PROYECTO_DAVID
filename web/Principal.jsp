@@ -131,6 +131,7 @@
                         <%}
                                 } catch (Exception e) {
                                 }%> 
+                        <a class="dropdown-item" data-toggle="modal" data-target="#ventana4" href="#">Recuperar contraseña</a>
                         <a class="dropdown-item" href="Control?accion=ir_a_carrito">Ir al carrito</a>
                     </div>
                 </div>
@@ -151,7 +152,7 @@
                         </div>
                         <div class="modal-body">   
                         <button type="submit" value="Login"  class="btn btn-info">Login</button>
-                        <button class="btn btn-danger btn-large" data-dismiss="modal" aria-hidden="true">Salir</button>
+                        <button class="btn btn-danger btn-large" data-dismiss="modal" aria-hidden="true">Salir</button>                       
                         </div>
                     </form>                           
                 </div>
@@ -292,6 +293,27 @@
                 </div>
             </div>
         </div>
+                        
+             <!-- VENTANA PARA RECUPERAR LA CONTRASEÑA CON EL CORREO -->            
+          <div class="modal fade" id="ventana4">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="Control?accion=recuperarcorreo" method="POST">   
+                        <div class="modal-body">
+                            <label>Email</label>
+                            <input type="text" placeholder="Introduca su Correo Electronico" name="txtemail" id="txtemail" class="form-control">
+                        </div>
+                        <div class="modal-body">   
+                        <button type="submit" value="Login"  class="btn btn-info">Enviar</button>
+                        <button class="btn btn-danger btn-large" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                        </div>
+                    </form>                           
+                </div>
+            </div>
+        </div>              
+                        
+                        
+                        
                             
         </nav>
         <div class="container mt-4">   

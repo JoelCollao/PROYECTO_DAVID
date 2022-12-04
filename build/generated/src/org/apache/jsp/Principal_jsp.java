@@ -226,6 +226,7 @@ if (sesion.getAttribute("cliente") != null) {
                                 } catch (Exception e) {
                                 }
       out.write(" \n");
+      out.write("                        <a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#ventana4\" href=\"#\">Recuperar contraseña</a>\n");
       out.write("                        <a class=\"dropdown-item\" href=\"Control?accion=ir_a_carrito\">Ir al carrito</a>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
@@ -246,7 +247,7 @@ if (sesion.getAttribute("cliente") != null) {
       out.write("                        </div>\n");
       out.write("                        <div class=\"modal-body\">   \n");
       out.write("                        <button type=\"submit\" value=\"Login\"  class=\"btn btn-info\">Login</button>\n");
-      out.write("                        <button class=\"btn btn-danger btn-large\" data-dismiss=\"modal\" aria-hidden=\"true\">Salir</button>\n");
+      out.write("                        <button class=\"btn btn-danger btn-large\" data-dismiss=\"modal\" aria-hidden=\"true\">Salir</button>                       \n");
       out.write("                        </div>\n");
       out.write("                    </form>                           \n");
       out.write("                </div>\n");
@@ -393,6 +394,27 @@ if (sesion.getAttribute("cliente") != null) {
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
+      out.write("                        \n");
+      out.write("             <!-- VENTANA PARA RECUPERAR LA CONTRASEÑA CON EL CORREO -->            \n");
+      out.write("          <div class=\"modal fade\" id=\"ventana4\">\n");
+      out.write("            <div class=\"modal-dialog\">\n");
+      out.write("                <div class=\"modal-content\">\n");
+      out.write("                    <form action=\"Control?accion=recuperarcorreo\" method=\"POST\">   \n");
+      out.write("                        <div class=\"modal-body\">\n");
+      out.write("                            <label>Email</label>\n");
+      out.write("                            <input type=\"text\" placeholder=\"Introduca su Correo Electronico\" name=\"txtemail\" id=\"txtemail\" class=\"form-control\">\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"modal-body\">   \n");
+      out.write("                        <button type=\"submit\" value=\"Login\"  class=\"btn btn-info\">Enviar</button>\n");
+      out.write("                        <button class=\"btn btn-danger btn-large\" data-dismiss=\"modal\" aria-hidden=\"true\">Cancelar</button>\n");
+      out.write("                        </div>\n");
+      out.write("                    </form>                           \n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>              \n");
+      out.write("                        \n");
+      out.write("                        \n");
+      out.write("                        \n");
       out.write("                            \n");
       out.write("        </nav>\n");
       out.write("        <div class=\"container mt-4\">   \n");

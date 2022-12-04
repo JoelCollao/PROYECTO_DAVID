@@ -14,10 +14,22 @@ import ModeloDAO.ClienteDAO;
 import ModeloDAO.ComprobanteDAO;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -200,13 +212,7 @@ public class Control extends HttpServlet {
             request.getRequestDispatcher("Administrador.jsp").forward(request, response);
         }
 
-        /*if(action.equalsIgnoreCase("eliminarAdministrador")){
-            //String admin_cod= request.getParameter("admin_cod");
-            /*adminDAO = new AdministradorDAO();
-            adminDAO.eliminar(admin_cod);
-            System.out.println("Cod_admin: "+admin_cod);
-            request.getRequestDispatcher("Administrador.jsp").forward(request, response);
-        }*/
+       
         if (action.equalsIgnoreCase("actualizarProducto")) {
             p = new Producto();
             String codpro = request.getParameter("txtCod_Prod");
@@ -384,7 +390,13 @@ public class Control extends HttpServlet {
             } catch (IOException | ServletException e) {
             }
         }
-
+        
+        if(action.equalsIgnoreCase("recuperar")){
+        
+        
+        }
+        
+        
         if (action.equalsIgnoreCase("logout")) {
             try {
                 System.out.println("Sesion iniciada: " + request.getSession());
@@ -399,7 +411,49 @@ public class Control extends HttpServlet {
             } catch (ServletException e) {
             }
         }
-
+        
+        
+         if(action.equalsIgnoreCase("recuperar")){
+            email=(String)request.getParameter("txtemail");
+            System.out.println(email);
+            cliDAO = new ClienteDAO();
+            cli= cliDAO.recuperarClave(email);
+             System.out.println(cli.getCli_password());
+            if(cli!=null){
+                try{
+                    EmailUtil.sendMail(email,cli);
+                    acceso="Login.jsp";
+                } 
+                catch(Exception ex){
+                    Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+           }
+         
+         
+         if(action.equalsIgnoreCase("recuperarcorreo")){
+            email=(String)request.getParameter("txtemail");
+            System.out.println(email);
+            cliDAO = new ClienteDAO();
+            cli= cliDAO.recuperarClave(email);
+             System.out.println(cli.getCli_password());
+            if(cli!=null){
+                try{
+                    EmailUtil.sendMail(email,cli);
+                    acceso=paginaPrincipal;
+                } 
+                catch(Exception ex){
+                    Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+           }
+         
+         
+         
+         
+        
+        
+        
         RequestDispatcher rd = request.getRequestDispatcher(acceso);
         rd.forward(request, response);
 
@@ -408,7 +462,24 @@ public class Control extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         processRequest(request, response);
+        
+        // Get the print writer object to write into the response
+        //----PrintWriter out = response.getWriter();
+  
+        // For understanding purpose, print the session object in the console before
+        // invalidating the session.
+        //System.out.println("Session before invalidate: "+ request.getSession(false));
+  
+        // Invalidate the session.
+        //-----request.getSession(false).invalidate();
+        
+//        String user = request.getParameter("a_moreno@gmail.com");
+//        String pass = request.getParameter("alejmore99");
+
+//        response.getWriter().append("Full Name: " + user + " " + pass);
+        
     }
 
     @Override
@@ -422,4 +493,61 @@ public class Control extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    
+     private static class EmailUtil {
+        public EmailUtil() {
+        }
+    public static void sendMail(String recepient, Cliente cli){
+        try{
+        System.out.println("Preparing to send email");
+        Properties properties = new Properties();
+        String clave = cli.getCli_password();
+        //Enable authentication
+        properties.put("mail.smtp.auth", "true");
+        //Set SMTP host
+        properties.put("mail.smtp.host", "smtp.office365.com");
+        //Set TLS encryption enabled
+        properties.put("mail.smtp.starttls.enable", "true");
+        //Set SSL
+        properties.put("mail.smtp.ssl.trust", "*");
+        properties.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
+        //Set smtp port
+        properties.put("mail.smtp.port", "587");
+        //Your  address & Password
+        String myAccountEmail = "n0reply.n0reply@outlook.com";
+        String password = "N0responderN0responder";
+        //Create a session with account credentials
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(myAccountEmail, password);
+            }
+        });
+	
+        //Prepare email message
+            System.out.println("la sesion es --->"+session);
+        Message message = prepareMessage(session, myAccountEmail, recepient,clave);
+        Transport.send(message);
+        }
+        catch(MessagingException e){
+            Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    private static Message prepareMessage(Session session, String myAccountEmail, String recepient, String clave) {
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(myAccountEmail));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.setSubject("Recuperacion de contrasena");
+            String htmlCode = "<h1> Clave: </h1> <br/> <h2><b>"+clave+ "</b></h2>";
+            message.setContent(htmlCode, "text/html");
+            return message;
+        } 
+        catch (MessagingException ex) {
+            Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        return null;
+        }
+
+}
 }

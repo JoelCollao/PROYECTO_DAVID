@@ -12,7 +12,8 @@ public class Cliente {
     protected String cli_telefono;
     protected String cli_email;
     protected String cli_password;
-
+    
+   
     public Cliente(String cli_codigo, String cli_nombre, String cli_apepat, String cli_apemat, String cli_doi, String cli_direccion, String cli_distrito, String cli_telefono, String cli_email, String cli_password) {
         this.cli_codigo = cli_codigo;
         this.cli_nombre = cli_nombre;
@@ -27,8 +28,9 @@ public class Cliente {
     }
 
     public Cliente() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+  
     
     public String getCli_codigo() {
         return cli_codigo;

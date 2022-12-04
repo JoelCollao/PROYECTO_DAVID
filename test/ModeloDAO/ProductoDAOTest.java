@@ -6,12 +6,9 @@
 package ModeloDAO;
 
 import Modelo.Producto;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,8 +16,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.io.InputStream;
-import java.util.Arrays;
-import org.junit.Assert;
 
 /**
  *
@@ -56,23 +51,17 @@ public class ProductoDAOTest {
 //        
 //        System.out.println("agregar");
 //        Producto pro = new Producto();
-//        pro.setPro_codigo("P0017");
-//        pro.setPro_descripcion("TOSHIBA PRUEBA1");
+//        pro.setPro_codigo("P0011");
+//        pro.setPro_descripcion("PRUEBA DE TEST");
 //        pro.setPro_precio_unitario(4786);
 //        pro.setPro_stock(35);
 //        pro.setCat_codigo(1);
-//        //String str="D:/imagen/foto.jpg";
-//        //InputStream is = new ByteArrayInputStream(StandardCharsets.UTF_8.encode(str).array());
-//        File initialFile = new File("D:/imagen/foto.jpg");
+//        File initialFile = new File("D:/imagen/producto-pro_img.jpg");
 //        InputStream targetStream = new FileInputStream(initialFile);
-//        //BufferedImage image = ImageIO.read(new File("D:/imagen/foto.jpg"));
-//        //InputStream pro_img = null;
-//        // Convert InputStream -> String
-//        pro.setPro_img(null);  //ver si se puede mandar como null
+//        pro.setPro_img(targetStream);  //ver si se puede mandar como null
 //        ProductoDAO instance = new ProductoDAO();
 //        instance.agregar(pro);
-//        assertFalse(false);
-//        
+//        assertFalse(false);   
 //    }
 
     /**
@@ -107,23 +96,23 @@ public class ProductoDAOTest {
 //    /**
 //     * Test of eliminar method, of class ProductoDAO.
 //     */
-//    @Test
-//    public void testEliminar() {
-//        System.out.println("eliminar");
-//        String pro_codigo = "P0016";
-//        ProductoDAO instance = new ProductoDAO();
-//        boolean expResult = false;
-//        boolean result = instance.eliminar(pro_codigo);
-//        assertEquals(expResult, result);      
-//       
-//    }
-//
+    @Test
+    public void testEliminar() {
+        System.out.println("eliminar");
+        String pro_codigo = "P0011";
+        ProductoDAO instance = new ProductoDAO();
+        boolean expResult = false;
+        boolean result = instance.eliminar(pro_codigo);
+        assertEquals(expResult, result);      
+       
+    }
+
 //    /**
 //     * Test of listarProducto method, of class ProductoDAO.
 //     */
-    @Test
-    public void testListarProducto() throws FileNotFoundException, IOException{
-        System.out.println("listarProducto");
+//    @Test
+//    public void testListarProducto() throws FileNotFoundException, IOException{
+//        System.out.println("listarProducto");
           
 //        System.out.println("imagen prueba");
 //        String data = "D:/imagen/producto-pro_img.jpg";
@@ -199,4 +188,4 @@ public class ProductoDAOTest {
 //    }
 
 
-}
+//}

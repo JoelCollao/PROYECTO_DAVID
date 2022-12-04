@@ -19,6 +19,7 @@ public class ClienteDAO implements metodoCliente{
     PreparedStatement ps;
     ResultSet rs;
     Cliente cli;
+
     
     
     @Override
@@ -75,9 +76,32 @@ public class ClienteDAO implements metodoCliente{
 
     @Override
     public Cliente recuperarClave(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+        try {
+            String query = "Select * From clientes where cli_email='"+email+"'";
+            con = cn.getConnection();
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {                
+            cli = new Cliente();
+            cli.setCli_codigo(rs.getString("cli_codigo"));
+            cli.setCli_nombre(rs.getString("cli_nombre"));
+            cli.setCli_apepat(rs.getString("cli_apepat"));
+            cli.setCli_apemat(rs.getString("cli_apemat"));
+            cli.setCli_doi(rs.getString("cli_doi"));
+            cli.setCli_direccion(rs.getString("cli_direccion"));
+            cli.setCli_distrito(rs.getString("cli_distrito"));
+            cli.setCli_telefono(rs.getString("cli_telefono"));
+            cli.setCli_email(rs.getString("cli_email"));
+            cli.setCli_password(rs.getString("cli_password"));
+            }
+        } catch (SQLException ex) {
+                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        return cli;
+        
+        }
+        
+   
     @Override
     public int recuperarId(String email) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
