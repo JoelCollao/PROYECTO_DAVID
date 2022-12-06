@@ -30,9 +30,10 @@
     <body>
        <%
        String nro_comprobante=request.getAttribute("nro_comprobante").toString();
+       int cont=0;
        %> 
         <div>
-        <h1><a href="Control?accion=logout&contador="<%= 0 %> class="btn btn-danger btn-block">Salir</a></h1>
+        <h1><a href="Control?accion=logout&contador="<%= cont %> class="btn btn-danger btn-block">Salir</a></h1>
         </div>
         <div class="col-sm-8">
             <table class="table table-hover">
@@ -92,7 +93,7 @@
                 %>
                 <tr>
                     <td>Fecha:</td>
-                    <td><%= fechaactual %></td>
+                    <td><%= fechaactual %></td><% request.setAttribute("contador", cont); %>
                 </tr>
             </footer>
         </div>  

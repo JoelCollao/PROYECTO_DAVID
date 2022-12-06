@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CarritoDAO implements metodoCarrito {
 
-    public ArrayList<Carrito> listarCarrito = new ArrayList();
+    public List<Carrito> listarCarrito = new ArrayList<Carrito>();
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;

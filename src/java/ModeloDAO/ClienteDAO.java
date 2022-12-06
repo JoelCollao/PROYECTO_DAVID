@@ -10,18 +10,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 
 public class ClienteDAO implements metodoCliente{
+    
+    private static final Logger log = Logger.getLogger(ClienteDAO.class);
+    
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     Cliente cli;
 
-    
-    
     @Override
     public void agregar(Cliente cli) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -33,6 +35,10 @@ public class ClienteDAO implements metodoCliente{
         ps.executeUpdate();
         }
         catch(SQLException ex){ 
+            log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
     }
 
@@ -69,7 +75,11 @@ public class ClienteDAO implements metodoCliente{
             }
         }
         catch(SQLException ex){
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+           //Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+           log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
         return cli;
     }
@@ -95,7 +105,11 @@ public class ClienteDAO implements metodoCliente{
             cli.setCli_password(rs.getString("cli_password"));
             }
         } catch (SQLException ex) {
-                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE,null,ex);
+              //Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE,null,ex);
+                log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
             }
         return cli;
         
@@ -142,7 +156,11 @@ public class ClienteDAO implements metodoCliente{
             }
         }
         catch(SQLException ex){
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
         return listarcliente;
     }

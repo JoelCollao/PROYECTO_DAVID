@@ -140,8 +140,9 @@
                             </tbody>
                         </table>
                     </div>
+                    
                     <div class="col-sm-4">
-                        <form action="" method="POST">
+                            <form action="Control?accion=Pagar" method="POST">
                         <label>Elegir Tienda</label>                            
                         <select name="txtLoc" id="txtLoc">
                     <%
@@ -169,11 +170,11 @@
 
                             </div>
                             <div class="card-footer">
-                                <input type="submit" value="Realizar Pago" class="form-control">
+                                <input type="submit" value="Generar Comprobante de Pago" class="form-control">
                             </div>
                                 
-                             <div>
-                            <button id="btn_pagar" value="btn_pagar">Pagar</button>
+                             <div class="card-footer">
+                                 <button id="btn_pagar" value="btn_pagar" class="form-control">Pagó en Pasarela</button>
                             </div>
 
                         </div>
@@ -194,7 +195,7 @@
                  Culqi.settings({
                     title: 'Culqi',
                     currency: 'PEN',
-                    amount: 3337748,
+                    amount: 3070001,
                     order: 'ord_live_0CjjdWhFpEAZlxlz'
                     });   
              </script>

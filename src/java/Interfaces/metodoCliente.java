@@ -5,16 +5,16 @@ import Modelo.Cliente;
 import java.util.ArrayList;
 
 
-public interface metodoCliente {
+public interface metodoCliente { //JOEL COLLAO | SE REALIZO LA CREACION DE LA INTERFACE METODO CLIENTE
     
-    public void agregar(Cliente cli); //public boolean agregar(Producto idProducto);
-    public boolean editar(String cli_codigo);
-    public boolean eliminar(String cli_codigo);
-    public Cliente listar(String email, String passw);
-    public Cliente recuperarClave(String email);
-    public int recuperarId(String email);
-    public ArrayList<Cliente>listarTodoCliente();
-    public int nuevoCliente();
-    public ArrayList<Cliente> listarClientes();
+    public void agregar(Cliente cli); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO DE AGREGAR PARA IMPLEMENTAR EN LA CLASE DAO
+    public boolean editar(String cli_codigo); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO DE EDITAR PARA IMPLEMENTAR EN LA CLASE DAO
+    public boolean eliminar(String cli_codigo); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO DE ELIMINAR PARA IMPLEMENTAR EN LA CLASE DAO
+    public Cliente listar(String email, String passw); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO LISTAR PARA IMPLEMENTAR EN LA CLASE DAO
+    public Cliente recuperarClave(String email); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO RECUPERAR CLAVE PARA IMPLEMENTAR EN LA CLASE DAO
+    public int recuperarId(String email); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO DE RECUPERAR POR ID PARA IMPLEMENTAR EN LA CLASE DAO
+    public ArrayList<Cliente>listarTodoCliente(); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO LISTAR TODOS LOS CLIENTES PARA IMPLEMENTAR EN LA CLASE DAO
+    public int nuevoCliente(); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO DE NUEVO CLIENTE PARA IMPLEMENTAR EN LA CLASE DAO
+    public ArrayList<Cliente> listarClientes(); //JOEL COLLAO | SE REALIZO LA CREACION DEL METODO DE LISTAR CLIENTES PARA IMPLEMENTAR EN LA CLASE DAO
     
 }

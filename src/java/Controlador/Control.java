@@ -14,7 +14,6 @@ import ModeloDAO.ClienteDAO;
 import ModeloDAO.ComprobanteDAO;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -42,6 +41,8 @@ import javax.servlet.http.Part;
 @MultipartConfig
 public class Control extends HttpServlet {
 
+   // private static final Logger log = Logger.getLogger(HttpServlet.class);
+
     // Instancia de cliente
     Cliente cli;
     ClienteDAO cliDAO;
@@ -63,10 +64,10 @@ public class Control extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession respuesta = request.getSession(true);
+        //HttpSession respuesta = request.getSession(true);
         String email;
         String pass;
-        String paginaLogin = "Login.jsp";
+        //String paginaLogin = "Login.jsp";
         String paginaPrincipal = "Principal.jsp";
         String paginaRegistrarCliente = "RegistroCliente.jsp";
         String paginaAdministrador = "Administracion.jsp";
@@ -423,9 +424,11 @@ public class Control extends HttpServlet {
                 try{
                     EmailUtil.sendMail(email,cli);
                     acceso="Login.jsp";
+                    
                 } 
                 catch(Exception ex){
                     Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, ex);
+                    
                 }
             }
            }
@@ -530,7 +533,8 @@ public class Control extends HttpServlet {
         Transport.send(message);
         }
         catch(MessagingException e){
-            Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, e);
+           Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, e);
+            
         }
     }
     private static Message prepareMessage(Session session, String myAccountEmail, String recepient, String clave) {
@@ -545,6 +549,7 @@ public class Control extends HttpServlet {
         } 
         catch (MessagingException ex) {
             Logger.getLogger(EmailUtil.class.getName()).log(Level.SEVERE, null, ex);
+           
             }
         return null;
         }

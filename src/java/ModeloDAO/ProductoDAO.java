@@ -13,12 +13,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletResponse;
 import Interfaces.metodoProducto;
 
 
 public class ProductoDAO implements metodoProducto {
+    public static final Logger log = Logger.getLogger(ProductoDAO.class);
+    
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
@@ -64,7 +67,11 @@ public class ProductoDAO implements metodoProducto {
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+             log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         } 
     }
     
@@ -77,7 +84,11 @@ public class ProductoDAO implements metodoProducto {
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+             log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
     }
 
@@ -91,7 +102,11 @@ public class ProductoDAO implements metodoProducto {
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
         return false;
     }
@@ -116,7 +131,11 @@ public class ProductoDAO implements metodoProducto {
             }
         }
         catch (SQLException ex){
-            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,ex);
+            //Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,ex);
+             log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
         return pro;
     }
@@ -142,7 +161,11 @@ public class ProductoDAO implements metodoProducto {
             }
         }
         catch (SQLException ex){
-            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,ex);
+            //Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,ex);
+             log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
         return productos;
     }
@@ -194,7 +217,11 @@ public class ProductoDAO implements metodoProducto {
             }
         }
         catch (SQLException ex){
-            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,ex);
+            //Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,ex);
+             log.debug("DEBUG"+ex);
+                     log.info("INFO"+ex);
+                      log.warn("WARN"+ex);
+                       log.fatal("ERROR FALTAL"+ex);
         }
         return lista;
     }

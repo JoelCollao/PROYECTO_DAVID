@@ -1,0 +1,36 @@
+2022/12/04 19:15:51.264 [FATAL] main (logs.java) - This is a FATAL message.
+2022/12/04 19:15:51.267 [ERROR] main (logs.java) - This is an ERROR message.
+2022/12/04 19:15:51.267 [ WARN] main (logs.java) - This is a WARN message.
+2022/12/04 19:15:51.268 [ INFO] main (logs.java) - This is an INFO message.
+2022/12/04 19:15:51.268 [DEBUG] main (logs.java) - This is a DEBUG message.
+2022/12/04 19:15:51.268 [TRACE] main (logs.java) - This is a TRACE message.
+2022/12/04 19:16:39.443 [FATAL] main (logs.java) - This is a FATAL message.
+2022/12/04 19:16:39.448 [ERROR] main (logs.java) - This is an ERROR message.
+2022/12/04 19:16:39.448 [ WARN] main (logs.java) - This is a WARN message.
+2022/12/04 19:16:39.448 [ INFO] main (logs.java) - This is an INFO message.
+2022/12/04 19:16:39.455 [DEBUG] main (logs.java) - This is a DEBUG message.
+2022/12/04 19:16:39.455 [TRACE] main (logs.java) - This is a TRACE message.
+2022/12/04 19:17:28.679 [FATAL] main (logs.java) - This is a FATAL message.
+2022/12/04 19:17:28.682 [ERROR] main (logs.java) - This is an ERROR message.
+2022/12/04 19:17:28.682 [ WARN] main (logs.java) - This is a WARN message.
+2022/12/04 19:17:28.683 [ INFO] main (logs.java) - This is an INFO message.
+2022/12/04 19:17:28.684 [DEBUG] main (logs.java) - This is a DEBUG message.
+2022/12/04 19:17:28.684 [TRACE] main (logs.java) - This is a TRACE message.
+2022/12/04 19:17:36.589 [FATAL] main (logs.java) - This is a FATAL message.1
+2022/12/04 19:17:36.592 [ERROR] main (logs.java) - This is an ERROR message.
+2022/12/04 19:17:36.593 [ WARN] main (logs.java) - This is a WARN message.
+2022/12/04 19:17:36.593 [ INFO] main (logs.java) - This is an INFO message.
+2022/12/04 19:17:36.593 [DEBUG] main (logs.java) - This is a DEBUG message.
+2022/12/04 19:17:36.594 [TRACE] main (logs.java) - This is a TRACE message.
+2022/12/04 19:21:39.338 [FATAL] main (logs.java) - This is a FATAL message.1
+2022/12/04 19:21:39.342 [ERROR] main (logs.java) - This is an ERROR message.
+2022/12/04 19:21:39.343 [ WARN] main (logs.java) - This is a WARN message.
+2022/12/04 19:21:39.343 [ INFO] main (logs.java) - This is an INFO message.
+2022/12/04 19:21:39.344 [DEBUG] main (logs.java) - This is a DEBUG message.
+2022/12/04 19:21:39.344 [TRACE] main (logs.java) - This is a TRACE message.
+2022/12/04 19:23:51.728 [FATAL] main (logs.java) - This is a FATAL message.1
+2022/12/04 19:23:51.733 [ERROR] main (logs.java) - This is an ERROR message.
+2022/12/04 19:23:51.733 [ WARN] main (logs.java) - This is a WARN message.
+2022/12/04 19:23:51.734 [ INFO] main (logs.java) - This is an INFO message.
+2022/12/04 19:23:51.734 [DEBUG] main (logs.java) - This is a DEBUG message.
+2022/12/04 19:23:51.734 [TRACE] main (logs.java) - This is a TRACE message.
